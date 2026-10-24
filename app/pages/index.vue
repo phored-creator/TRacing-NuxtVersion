@@ -18,7 +18,7 @@
         <!-- Текст в правом нижнем углу -->
         <div class="absolute bottom-4 left-4 right-4 md:bottom-4 md:left-4 md:right-4 ">
           <p class="text-white text-xs md:text-base font-bold tracking-wider bg-black/50 px-3 py-1.5 rounded backdrop-blur-sm">
-            Компания Michelin была официальным эксклюзивным поставщиком шин Michelin Pilot Sport EV для чемпионата мира по гонкам электромобилей Formula E.        </p>
+            Компания Michelin была официальным эксклюзивным поставщиком шин Michelin Pilot Sport EV для чемпионата мира по гонкам электромобилей Formula E        </p>
         </div>
       </div>
     </section>
