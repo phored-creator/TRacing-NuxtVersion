@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  /* Создаем переменную шрифта для Tailwind */
+  --font-slab: "Roboto Slab", serif;
+}
+
+/* Применяем этот шрифт ко всему телу сайта */
+body {
+  font-family: var(--font-slab);
+}
