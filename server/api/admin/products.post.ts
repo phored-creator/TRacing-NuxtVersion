@@ -27,9 +27,9 @@ export default defineEventHandler(async (event) => {
     // 4. Вставляем новый товар в MySQL таблицу через Drizzle
     await db.insert(products).values({
       name,
-      category,
+      category: Number(category),
       price,
-      image,
+      image: image,
       brand,
       season,
       diameter,

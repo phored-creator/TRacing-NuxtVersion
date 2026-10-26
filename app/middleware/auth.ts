@@ -5,6 +5,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
   // Если пользователь НЕ вошел в аккаунт (кука отсутствует)
   if (!loggedIn.value) {
     // Мгновенно отправляем его на страницу логина
-    return navigateTo('/login')
+    return navigateTo('/auth/login')
   }
 })

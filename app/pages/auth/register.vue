@@ -3,6 +3,7 @@ import { ref } from 'vue'
 
 // Проверка, если пользователь авторизован то => профиль
 definePageMeta({
+  layout: 'notfooter',
   middleware: 'guest'
 })
 
@@ -50,8 +51,8 @@ const handleRegister = async () => {
 </script>
 
 <template>
-  <section class="w-full max-w-md mx-auto border border-gray-400">
-    <h2 class="font-bold text-white text-center bg-black/90 p-2 tracking-wide text-lg">
+  <section class="w-full max-w-md mx-auto border border-gray-400 rounded">
+    <h2 class="font-bold text-base md:text-lg text-white text-center bg-black/90 p-2 tracking-wide">
       Регистрация нового пользователя
     </h2>
 
@@ -64,8 +65,7 @@ const handleRegister = async () => {
           {{ successMsg }}
       </p>  
 
-      
-      <div class="flex flex-col mt-4">
+      <div class="flex flex-col">
         <input 
           v-model="name" 
           type="text" 
@@ -94,13 +94,13 @@ const handleRegister = async () => {
       </div>
       <button 
         type="submit"
-        class="w-full bg-black/90 text-white p-2.5 mt-3 font-bold uppercase tracking-wider text-xs hover:bg-black transition-colors cursor-pointer disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+        class="w-full bg-black/90 text-white p-2.5 mt-6 font-bold uppercase tracking-wider text-xs hover:bg-black transition-colors cursor-pointer disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
       >
         Зарегистрироваться
       </button>
-      <p class="text-left text-base mt-2 ">Уже есть аккаунт? 
+      <p class="text-left text-sm mt-2 ">Уже есть аккаунт? 
           <NuxtLink 
-              to="/login" 
+              to="/auth/login" 
               class="text-gray-500"
           >
               Войти

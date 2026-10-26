@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 
 definePageMeta({
+    layout: 'notfooter',
     middleware: 'guest'
 })
 
@@ -52,8 +53,8 @@ const handleLogin = async () => {
 </script>
 
 <template>
-    <section class="w-full max-w-md mx-auto border border-gray-400 text-center">
-        <h2 class="font-bold text-white text-center bg-black/90 p-2 tracking-wide text-lg">
+    <section class="w-full max-w-md mx-auto border border-gray-400 text-center rounded">
+        <h2 class="font-bold text-base lg:text-lg text-white text-center bg-black/90 p-2 tracking-wide ">
             Вход в аккаунт
         </h2>
 
@@ -66,7 +67,7 @@ const handleLogin = async () => {
                 {{ successMsg }}
             </p>
 
-            <div class="flex flex-col mt-4">
+            <div class="flex flex-col">
                 <input 
                     v-model="email" 
                     type="email" 
@@ -89,13 +90,13 @@ const handleLogin = async () => {
             <button 
                 type="submit" 
                 :disabled="isLoading"
-                class="w-full bg-black/90 text-white p-2.5 mt-3 font-bold uppercase tracking-wider text-xs hover:bg-black transition-colors cursor-pointer disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed" 
+                class="w-full bg-black/90 text-white p-2.5 mt-6 font-bold uppercase tracking-wider text-xs hover:bg-black transition-colors cursor-pointer disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed" 
             >
                 {{ isLoading ? 'Вход...' : 'Войти' }}
             </button>
-            <p class="text-left text-base mt-2">У вас нет аккаунта? 
+            <p class="text-left text-sm mt-2">У вас нет аккаунта? 
                 <NuxtLink 
-                    to="/register" 
+                    to="/auth/register" 
                     class="text-gray-500"
                 >
                     Зарегистрироваться

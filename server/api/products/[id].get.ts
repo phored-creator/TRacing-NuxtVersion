@@ -1,5 +1,5 @@
 import { db } from '../../db';
-import { products } from '../../db/schema';
+import { categories, products } from '../../db/schema';
 import { eq } from 'drizzle-orm';
 
 export default defineEventHandler(async (event) => {
@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
       .select({
         id: products.id,
         name: products.name,
-        category: products.category,
+        categoryName: categories.name,
         price: products.price,
         image: products.image,
         brand: products.brand,
@@ -24,6 +24,7 @@ export default defineEventHandler(async (event) => {
         country: products.country
       })
       .from(products)
+      .leftJoin(categories, eq(products.category, categories.id))
       .where(eq(products.id, productId))
       .limit(1);
 

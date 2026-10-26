@@ -32,7 +32,7 @@ const { data: product, error } = await useFetch(`/api/products/${productId}`)
       <div class="flex flex-col justify-between border border-gray-400 p-6 bg-white">
         <div class="space-y-4">
           <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500 bg-gray-100 px-2.5 py-1 rounded">
-            Категория: {{ product.category === 'tires' ? 'Шины' : product.category === 'wheels' ? 'Диски' : product.category }}
+            Категория: {{ product.categoryName || 'Без категории' }}
           </span>
           <h1 class="text-xl md:text-2xl font-black text-black uppercase tracking-wide mt-2">
             {{ product.name }}
@@ -70,15 +70,28 @@ const { data: product, error } = await useFetch(`/api/products/${productId}`)
           </div>
         </div>
 
+      <!-- 🟢 Подсказка про размеры -->
+        <div class="bg-gray-50 border-l-4 border-black p-3 mt-2">
+          <p class="text-xs text-gray-700 font-medium">
+            <span class="font-black uppercase tracking-wider">Внимание:</span> 
+            Все размеры в наличии. Укажите нужный размер (например, 205/55 R16) в комментарии к заказу.
+          </p>
+        </div>
+
         <!-- Цена и кнопка покупки -->
-        <div class="border-t border-gray-300 pt-6 mt-6 flex items-center justify-between gap-4">
+        <div class="border-t border-gray-300 pt-6 mt-2 flex items-center justify-between gap-4">
           <div class="flex flex-col">
             <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Цена за штуку</span>
-            <span class="text-2xl font-black text-black tracking-tight">{{ product.price }}</span>
+            <span class="text-2xl font-black text-black tracking-tight">${{ product.price }}</span>
           </div>
-          <button class="bg-black/90 text-white font-bold uppercase tracking-wider text-xs px-8 py-3.5 hover:bg-black transition-colors cursor-pointer rounded-xs">
-            Добавить в корзину
-          </button>
+
+          <!-- Изменяем кнопку в файле catalog/[id].vue -->
+          <NuxtLink 
+            :to="`/order?product=${product.id}`"
+            class="bg-black/90 text-white font-bold uppercase tracking-wider text-xs px-8 py-3.5 hover:bg-black transition-colors rounded-xs block text-center"
+          >
+            Оставить заявку
+          </NuxtLink>
         </div>
 
       </div>
